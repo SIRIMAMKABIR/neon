@@ -1,10 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { 
-  Send, Paperclip, Smile, Phone, Video, 
-  MoreHorizontal, Search, Users, Settings,
-  Crown, Shield, User, Circle, Image,
-  File, Mic, MicOff
-} from "lucide-react";
+import { Send, Paperclip, Smile, Phone, Video, MoveHorizontal as MoreHorizontal, Search, Users, Settings, Crown, Shield, User, Circle, Image, File, Mic, MicOff } from "lucide-react";
 
 interface ChatMessage {
   id: string;

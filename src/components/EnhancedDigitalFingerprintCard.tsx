@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import { 
-  CreditCard, Shield, Award, Calendar, Copy, Eye, EyeOff,
-  Fingerprint, Zap, Globe, Star, Crown, QrCode,
-  Download, Share, Settings, Lock, Unlock
-} from "lucide-react";
+import { CreditCard, Shield, Award, Calendar, Copy, Eye, EyeOff, Fingerprint, Zap, Globe, Star, Crown, QrCode, Download, Share, Settings, Lock, Clock as Unlock } from "lucide-react";
 import { toast } from "sonner";
 
 interface EnhancedDigitalFingerprintCardProps {

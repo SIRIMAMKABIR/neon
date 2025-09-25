@@ -1,10 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { 
-  Save, Eye, Code, Palette, Type, Image, 
-  Plus, Trash2, ArrowLeft, Layout, Smartphone, 
-  Monitor, Tablet, Settings, Globe, Download,
-  Upload, Link as LinkIcon, Camera, Wand2
-} from "lucide-react";
+import { Save, Eye, Code, Palette, Type, Image, Plus, Trash2, ArrowLeft, LayoutGrid as Layout, Smartphone, Monitor, Tablet, Settings, Globe, Download, Upload, Link as LinkIcon, Camera, Wand as Wand2 } from "lucide-react";
 import { toast } from "sonner";
 import { NEON_TEMPLATES } from "@/data/templates";
 

@@ -1,10 +1,5 @@
 import { useState } from "react";
-import { 
-  MessageCircle, User, Calendar, Mail, 
-  Phone, MapPin, Star, Archive, Trash2,
-  Reply, Forward, MoreHorizontal, Search,
-  Filter, Eye, EyeOff
-} from "lucide-react";
+import { MessageCircle, User, Calendar, Mail, Phone, MapPin, Star, Archive, Trash2, Reply, Forward, MoveHorizontal as MoreHorizontal, Search, ListFilter as Filter, Eye, EyeOff } from "lucide-react";
 
 interface ContactMessage {
   id: string;
