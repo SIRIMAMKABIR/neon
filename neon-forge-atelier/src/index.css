@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NEON TECH LUXURY DESIGN SYSTEM */
+
+@layer base {
+  :root {
+    /* Neon Tech Brand Palette */
+    --neon-blue: 187 100% 50%; /* #00E5FF */
+    --accent-red: 344 100% 50%; /* #FF003C */
+    --luxury-purple: 268 60% 30%; /* #50207A */
+    --luxury-lavender: 267 89% 85%; /* #D6B9FC */
+    --luxury-periwinkle: 235 67% 70%; /* #838CE5 */
+    
+    /* Dark Canvas */
+    --canvas-dark: 220 25% 6%; /* Near black */
+    --canvas-surface: 220 20% 10%;
+    --canvas-elevated: 220 15% 14%;
+    
+    /* Glass System */
+    --glass-bg: 220 20% 10% / 0.1;
+    --glass-border: 187 100% 50% / 0.2;
+    --glass-blur: blur(20px);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 229, 255, 0.15);
+    
+    /* Gradients */
+    --gradient-luxury: linear-gradient(135deg, hsl(var(--luxury-purple)), hsl(var(--luxury-periwinkle)), hsl(var(--luxury-lavender)));
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-blue)), hsl(var(--luxury-periwinkle)));
+    --gradient-canvas: linear-gradient(180deg, hsl(var(--canvas-dark)), hsl(var(--canvas-surface)));
+    
+    /* Core Design System */
+    --background: var(--canvas-dark);
+    --foreground: 0 0% 98%;
+    --card: var(--canvas-surface);
+    --card-foreground: 0 0% 95%;
+    --popover: var(--canvas-elevated);
+    --popover-foreground: 0 0% 95%;
+    --primary: var(--neon-blue);
+    --primary-foreground: 220 25% 6%;
+    --secondary: var(--canvas-elevated);
+    --secondary-foreground: 0 0% 90%;
+    --muted: var(--canvas-surface);
+    --muted-foreground: 0 0% 65%;
+    --accent: var(--luxury-periwinkle);
+    --accent-foreground: 220 25% 6%;
+    --destructive: var(--accent-red);
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 20% 20%;
+    --input: var(--canvas-elevated);
+    --ring: var(--neon-blue);
+    --radius: 0.75rem;
+    
+    /* Typography Scale */
+    --font-headline: 'Merriweather', serif;
+    --font-body: 'Poppins', sans-serif;
+    
+    /* Luxury Spacing */
+    --space-luxury: 2rem;
+    --space-section: 6rem;
+    
+    /* Animation Timings */
+    --duration-fast: 0.2s;
+    --duration-normal: 0.4s;
+    --duration-slow: 0.8s;
+    --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    background: var(--gradient-canvas);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
+    letter-spacing: -0.02em;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus ring improvements */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Glass morphism utilities */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(0, 229, 255, 0.1);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl p-6 transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 64px 0 rgba(0, 229, 255, 0.25);
+  }
+
+  /* Typography utilities */
+  .text-headline {
+    font-family: var(--font-headline);
+    letter-spacing: -0.02em;
+  }
+
+  .text-luxury {
+    background: var(--gradient-luxury);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-neon {
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Button variants */
+  .btn-neon {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold;
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/25;
+    @apply hover:scale-105 active:scale-95;
+  }
+
+  .btn-glass {
+    @apply glass px-8 py-4 rounded-xl font-medium text-foreground;
+    @apply transition-all duration-300 hover:bg-white/10;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .glass-card {
+      padding: 1rem;
+      border-radius: 0.75rem;
+    }
+    
+    body {
+      font-size: 14px;
+    }
+    
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+  }
+
+  @media (max-width: 480px) {
+    .glass-card {
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+    }
+  }
+
+  /* Animation utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 229, 255, 0.4),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Geometric shapes */
+  .big-n {
+    font-family: var(--font-headline);
+    font-size: 40vh;
+    font-weight: 900;
+    background: var(--gradient-luxury);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.03;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Constellation effect */
+  .constellation-field {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .constellation-orb {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: hsl(var(--neon-blue));
+    border-radius: 50%;
+    box-shadow: 0 0 8px hsl(var(--neon-blue));
+    animation: constellation-pulse 2s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float,
+    .animate-glow,
+    .animate-shimmer {
+      animation: none;
+    }
+    
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px rgba(0, 229, 255, 0.5); }
+  100% { box-shadow: 0 0 40px rgba(0, 229, 255, 0.8); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes constellation-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
